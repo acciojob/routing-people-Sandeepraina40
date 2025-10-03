@@ -9,9 +9,9 @@ const App = () => {
       <div>
         <Switch>
           <Route exact path="/users" component={UserList} />
-          <Route path="/user/:id" component={UserDetails} />
+          <Route path="/users/:id" component={UserDetails} />
           {/* Redirect home or unknown paths to /users */}
-          <Redirect from="/" to="/users" />
+          <Redirect exact from="/" to="/users" />
         </Switch>
       </div>
     </BrowserRouter>
