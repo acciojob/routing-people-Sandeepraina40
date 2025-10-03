@@ -4,25 +4,18 @@ import React, { useState, useEffect } from 'react';
 
 const UserDetails = () => {
     const { id } = useParams();
-    const [user, setUser] = useState([]);
-    const [loading,setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
+    const [user, setUser] = useState(null);
     useEffect(() => {
         fetch(`http://jsonplaceholder.typicode.com/users/${id}`)
-
             .then(res => res.json())
-            .then(data => {
-                setUser = (data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error("Failed to fetch user:", err);
-                setLoading(false);
-            });
-    },[id]);
+            .then(data => setUser(data));
+    }, [id]);
+    if (!user) return <div>Loading...</div>;
+
 
     if (loading) return <div>Loading...</div>;
-    if (!user) return <div>User not found</div>;
 
 
     return (
