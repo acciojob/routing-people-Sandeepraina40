@@ -8,7 +8,8 @@ const UserDetails = () => {
     const [loading,setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        fetch(`http://jsonplaceholder.typicode.com/users/${id}`)
+
             .then(res => res.json())
             .then(data => {
                 setUser = (data);

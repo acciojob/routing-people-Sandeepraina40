@@ -7,7 +7,8 @@ const UserList = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('http://jsonplaceholder.typicode.com/users')
+
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
@@ -22,7 +23,7 @@ const UserList = () => {
     if(loading){
         return <div>Loading...</div>
     }
-    
+
 
     return (
         <div>
